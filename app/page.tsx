@@ -4,9 +4,7 @@ export default function Home() {
   return (
     <main>
       <section className="hero">
-<<<<<<< HEAD
-        <h1>Your Protection, Our Mission</h1>
-        <h3>Be Aware,Be Safe</h3>
+        <h1>Human Safety Website</h1>
         <p>Emergency help, safe travel, and trusted contact protection in one place.</p>
 
         <div className="hero-buttons">
@@ -21,13 +19,6 @@ export default function Home() {
       </section>
 
       <section id="features" className="feature-grid">
-=======
-        <h1>Human Safety Website</h1>
-        <p>Emergency help, safe travel, and trusted contact protection in one place.</p>
-      </section>
-
-      <section className="feature-grid">
->>>>>>> eba360c0b44be2a74abc9b89dd0181b77c4d04e2
         <FeatureCard title="🚨 Emergency Alert" text="Send instant danger alert with location." link="/emergency-alert" />
         <FeatureCard title="📍 Nearest People" text="Notify nearby trusted people quickly." link="/nearest-people" />
         <FeatureCard title="🛣️ Safety Travel" text="Check your route before travelling." link="/safety-travel" />
