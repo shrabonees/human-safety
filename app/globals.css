@@ -126,3 +126,42 @@ body {
     font-size: 38px;
   }
 }
+.hero-buttons {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.hero-btn {
+  padding: 12px 26px;
+  border-radius: 999px;
+  color: white;
+  font-weight: 700;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.emergency-btn {
+  background: #ef4444;
+}
+
+.emergency-btn:hover {
+  background: #dc2626;
+}
+
+.explore-btn {
+  background: #4f46e5;
+}
+
+.explore-btn:hover {
+  background: #4338ca;
+}
+
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: #64748b;
+  font-size: 14px;
+}
