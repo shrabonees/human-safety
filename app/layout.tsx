@@ -1,4 +1,11 @@
+import "./globals.css";
 import Link from "next/link";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Human Safety App",
+  description: "Emergency safety and travel protection website",
+};
 
 export default function RootLayout({
   children,
@@ -7,23 +14,17 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body style={{ margin: 0, fontFamily: "Arial" }}>
+      <body>
 
         {/* Navbar */}
-        <nav style={{
-          display: "flex",
-          justifyContent: "space-between",
-          padding: "15px 30px",
-          background: "#111827",
-          color: "white"
-        }}>
+        <nav className="navbar">
           <h2>Safety App</h2>
 
-          <div style={{ display: "flex", gap: "15px" }}>
-            <Link href="/" style={{ color: "white" }}>Home</Link>
-            <Link href="/emergency-alert" style={{ color: "red" }}>Emergency</Link>
-            <Link href="/safety-travel" style={{ color: "white" }}>Travel</Link>
-            <Link href="/emergency-contact" style={{ color: "white" }}>Contact</Link>
+          <div className="nav-links">
+            <Link href="/">Home</Link>
+            <Link href="/emergency-alert" className="danger">Emergency</Link>
+            <Link href="/safety-travel">Travel</Link>
+            <Link href="/emergency-contact">Contact</Link>
           </div>
         </nav>
 

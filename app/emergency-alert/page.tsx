@@ -1,8 +1,34 @@
 "use client";
 
+import { useState } from "react";
+
 export default function EmergencyAlert() {
+  const [mapLink, setMapLink] = useState("");
+  const [message, setMessage] = useState("");
+
   function sendAlert() {
-    alert("🚨 Emergency Alert Sent! Your trusted contacts will be notified.");
+    const savedContacts = localStorage.getItem("emergencyContacts");
+
+    if (!savedContacts) {
+      setMessage("❌ No contacts found");
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        const contacts = JSON.parse(savedContacts);
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
+
+        const link = `https://www.google.com/maps?q=${lat},${lng}`;
+
+        setMapLink(link);
+        setMessage(`🚨 Alert sent to: ${contacts.join(", ")}`);
+      },
+      () => {
+        setMessage("❌ Location permission denied.");
+      }
+    );
   }
 
   return (
@@ -26,6 +52,30 @@ export default function EmergencyAlert() {
       >
         SEND ALERT
       </button>
+
+      {message && (
+        <p style={{ marginTop: "20px", fontWeight: "bold" }}>
+          {message}
+        </p>
+      )}
+
+      {mapLink && (
+        <a
+          href={mapLink}
+          target="_blank"
+          style={{
+            display: "inline-block",
+            marginTop: "20px",
+            padding: "12px 25px",
+            background: "#2563eb",
+            color: "white",
+            borderRadius: "8px",
+            textDecoration: "none"
+          }}
+        >
+          📍 Open Location in Google Maps
+        </a>
+      )}
     </main>
   );
 }
